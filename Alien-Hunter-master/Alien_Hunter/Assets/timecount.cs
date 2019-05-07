@@ -10,8 +10,12 @@ public class timecount : MonoBehaviour {
     string s;
     public int timeInt;
     public GameObject GameOver;
-	void Update () {
+    private void Start()
+    {
         rest();
+    }
+    void Update () {
+        
         showtime();
     }
     void showtime()

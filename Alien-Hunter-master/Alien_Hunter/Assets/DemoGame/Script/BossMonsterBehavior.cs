@@ -35,6 +35,8 @@ public class BossMonsterBehavior : MonoBehaviour
     //Congraulation
     public GameObject congrtulations;
     public GameObject game;
+    //Load Scenes
+    public string scenesName;
     void Start ()
     {
         animator = GetComponentInChildren<Animator>();
@@ -64,9 +66,16 @@ public class BossMonsterBehavior : MonoBehaviour
             Destroy(this);
             congrtulations.SetActive(true);
             game.SetActive(false);
+            toTime();
+            SceneManager.LoadScene(scenesName);
         }
     }
-
+    IEnumerator toTime()
+    {
+        print(Time.time);
+        yield return new WaitForSeconds(5);
+        print(Time.time);
+    }
     void Update ()
     {
         animator.SetBool("AttackRight", true);
